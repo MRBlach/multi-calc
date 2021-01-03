@@ -1,9 +1,9 @@
 <h1 align="center">
 <br>
-  <a href="https://github.com/MRBlach/covid-19">
-    <img src="https://github.com/MRBlach/covid-19/blob/main/images/logo.png?raw=true" alt="logo.png">
+  <a href="https://github.com/MRBlach/multi-calc">
+    <img src="images/calc-lg.png" alt="logo.png">
   </a><br>
-COVID-19 Tracker
+Multi Calc
 </h1> 
 <p align="center">
   <a href="https://saythanks.io/to/melodyblachowicz%40gmail.com">
@@ -25,16 +25,15 @@ COVID-19 Tracker
 
 <h1 id="introduction">Introduction</h1>
 
-An app using COVID19 API to display the latest coronavirus statistics. View current case counts by country. Graphically compare recovery counts to death counts. Available across multiple devices.
+A calculator app.
 
 <h1 id="features">Key Features</h1>
 
-+ Live updates on stats
-+ Over 200 countries to choose from
-+ Graphical analysis of 3 key data points: <br>
-  -Recovered <br>
-  -Deaths <br>
-  -Total Cases <br>
++ Basic calculator
++ Scientific Calculator
++ Unit Converter
++ Loan Interest
++ Tip Amount
 + Responsive Design
 
 ---
@@ -44,10 +43,9 @@ An app using COVID19 API to display the latest coronavirus statistics. View curr
 
 Responsive design and mobile first approach allow for ease of access across devices.
 
-<img src="images/viewports.png">
+<img src="images/.png">
 
-Here is a working live demonstration: https://mrblach.github.io/covid-19/
-
+Here is a working live demonstration: 
 ### Steps To Execute This App
 - Download the entire code
 - Open the index.html file
