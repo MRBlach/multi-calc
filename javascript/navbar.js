@@ -1,8 +1,10 @@
 document.getElementById('navbar').innerHTML = `
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 <div data-toggle="collapse" data-target=".navbar-collapse.show">
-<img src="images/calc-icon.png" alt="calculator icon" width="50%" />
-</div>
+  <a href="index.html">
+    <img src="images/calc-icon.png" alt="calculator icon" width="50%" />
+  </a>
+    </div>
 
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">

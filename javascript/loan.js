@@ -4,25 +4,27 @@ document.getElementById('loanBtn').addEventListener('click', displayLoanCalc);
 function displayLoanCalc(e) {
 // hide home page
 document.getElementById('home').hidden = true;
+document.getElementById('calculatorUI').hidden = true;
+document.getElementById('loanUI').hidden = false;
 document.querySelector('#loanUI').innerHTML = `
 <div class="container">
 <div class="row">
-  <div class="col-md-6 mx-auto">
-    <div class="card card-body text-center mt-5 shadow-lg">
-      <h1 class="shimmer heading display-5 pb-3">Loan Calculator</h1>
+  <div class="col-md-6 mx-auto stencil-text">
+    <div class="err card card-body text-center mt-5 shadow-lg bg-silver">
+      <h1 class="heading shimmer display-5 pb-3">Loan Calculator</h1>
       
       <form  id="loan-form">
       
         <div class="input-group pb-4">
           <div class="input-group-prepend">
-            <span class="bg-shimmer text-white input-group-text">$</span>
+            <span class="bg-silver text-secondary input-group-text">$</span>
           </div> 
           <input type="number" class="form-control" id="amount" placeholder="Loan Amount">
         </div>
 
         <div class="input-group pb-4">
           <div class="input-group-prepend">
-            <span class="bg-shimmer text-white input-group-text">%</span>
+            <span class="bg-silver text-secondary input-group-text">%</span>
           </div> 
            <input type="number" class="form-control" id="interest" placeholder="Interest">
         </div>
@@ -32,8 +34,8 @@ document.querySelector('#loanUI').innerHTML = `
         </div>
 
         <div class="form-group">
-          <button class="btn btn-dark mt-4 shadow loanSubmit">calculate</button>
-          <input href="#" class="btn btn-light mt-4 px-4 shadow" type="reset" value="Reset" id="resetLoan">
+          <input type="button" class="btn btn-light text-secondary mt-4 shadow loanSubmit bg-silver" value="calculate">
+          <input href="#" class="btn btn-light text-secondary mt-4 px-4 shadow bg-silver" type="reset" value="reset" id="resetLoan">
         </div>
       </form>
 
@@ -45,23 +47,23 @@ document.querySelector('#loanUI').innerHTML = `
         <h5>Results</h5>
         <div class="input-group pb-2">
           <div class="input-group-prepend">
-            <span class="input-group-text">Monthly Payment</span>
+            <span class="input-group-text bg-silver">Monthly Payment</span>
           </div>
-          <input type="number" class="form-control" id="monthly-payment" disabled>
+          <input type="number" class="form-control bg-white" id="monthly-payment" disabled>
       </div>
 
       <div class="input-group pb-2">
         <div class="input-group-prepend">
-          <span class="input-group-text">Total Payment</span>
+          <span class="input-group-text bg-silver">Total Payment</span>
         </div>
-         <input type="number" class="form-control" id="total-payment" disabled>
+         <input type="number" class="form-control bg-white" id="total-payment" disabled>
     </div>
 
     <div class="input-group">
       <div class="input-group-prepend">
-        <span class="input-group-text">Total Interest</span>
+        <span class="input-group-text bg-silver">Total Interest</span>
       </div>
-      <input type="number" class="form-control" id="total-interest" disabled>  
+      <input type="number" class="form-control bg-white" id="total-interest" disabled>  
     </div>
   </div>
   </div>
@@ -133,7 +135,7 @@ function showError(error){
    //create a div
   const errorDiv = document.createElement('div');
     //get elements
-    const card = document.querySelector('.card');
+    const card = document.querySelector('.err');
     const heading = document.querySelector('.heading');
 
   //add a class to the div
