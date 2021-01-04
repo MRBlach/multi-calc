@@ -45,7 +45,8 @@ Responsive design and mobile first approach allow for ease of access across devi
 
 <img src="images/.png">
 
-Here is a working live demonstration: 
+Here is a working live demonstration: https://mrblach.github.io/multi-calc/
+
 ### Steps To Execute This App
 - Download the entire code
 - Open the index.html file
