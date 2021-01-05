@@ -1,67 +1,68 @@
-// Loan UI
+// Navbar Loan Calculator Button
 document.getElementById('loanBtn').addEventListener('click', displayLoanCalc);
 
+// Loan Calculator UI
 function displayLoanCalc(e) {
-// hide home page
+document.getElementById('loanUI').hidden = false;
 document.getElementById('home').hidden = true;
 document.getElementById('calculatorUI').hidden = true;
-document.getElementById('loanUI').hidden = false;
+document.getElementById('tipUI').hidden = true;
 document.querySelector('#loanUI').innerHTML = `
 <div class="container">
 <div class="row">
   <div class="col-md-6 mx-auto stencil-text">
-    <div class="err card card-body text-center mt-5 shadow-lg bg-silver">
-      <h1 class="heading shimmer display-5 pb-3">Loan Calculator</h1>
+    <div class="card card-body text-center mt-5 shadow-lg bg-silver">
       
+      <div class="alert shimmer" hidden>Number Input Error Please Try Again</div>
       <form  id="loan-form">
       
         <div class="input-group pb-4">
           <div class="input-group-prepend">
             <span class="bg-silver text-secondary input-group-text">$</span>
           </div> 
-          <input type="number" class="form-control" id="amount" placeholder="Loan Amount">
+          <input type="number" class="form-control" id="amount" placeholder="loan amount">
         </div>
 
         <div class="input-group pb-4">
           <div class="input-group-prepend">
             <span class="bg-silver text-secondary input-group-text">%</span>
           </div> 
-           <input type="number" class="form-control" id="interest" placeholder="Interest">
+           <input type="number" class="form-control" id="interest" placeholder="interest rate">
         </div>
 
         <div class="form-group">
-          <input type="number" class="form-control" id="years" placeholder="Years To Repay">
+          <input type="number" class="form-control" id="years" placeholder="years to repay">
         </div>
 
-        <div class="form-group">
-          <input type="button" class="btn btn-light text-secondary mt-4 shadow loanSubmit bg-silver" value="calculate">
-          <input href="#" class="btn btn-light text-secondary mt-4 px-4 shadow bg-silver" type="reset" value="reset" id="resetLoan">
+        <div class="form-group text-center">
+          <input type="submit" class="loanSubmit text-secondary operator" value="submit">
+          <input href="#" class="text-secondary operator" type="reset" value="reset" id="resetCalc">
         </div>
       </form>
 
       <div id="loading" hidden>
-        <img src="images/loading.gif" alt="">
+      <h1 class="shimmer pb-3">Calculating...</h1>
       </div>
       
       <div id="results" class="pt-4" hidden>
-        <h5>Results</h5>
+        <h5 class="shimmer">Results</h5>
         <div class="input-group pb-2">
           <div class="input-group-prepend">
-            <span class="input-group-text bg-silver">Monthly Payment</span>
+            <span class="input-group-text bg-silver">Monthly $</span>
           </div>
           <input type="number" class="form-control bg-white" id="monthly-payment" disabled>
       </div>
 
       <div class="input-group pb-2">
         <div class="input-group-prepend">
-          <span class="input-group-text bg-silver">Total Payment</span>
+          <span class="input-group-text bg-silver">Total $</span>
         </div>
          <input type="number" class="form-control bg-white" id="total-payment" disabled>
     </div>
 
     <div class="input-group">
       <div class="input-group-prepend">
-        <span class="input-group-text bg-silver">Total Interest</span>
+        <span class="input-group-text bg-silver">Total %</span>
       </div>
       <input type="number" class="form-control bg-white" id="total-interest" disabled>  
     </div>
@@ -70,14 +71,16 @@ document.querySelector('#loanUI').innerHTML = `
 </div>
 </div>
 `
+
 // reset button function
-document.getElementById('resetLoan').addEventListener('click', funcReset);
+document.getElementById('resetCalc').addEventListener('click', funcReset);
 function funcReset(e) {
   document.getElementById('results').hidden = true;
 }
 
 //Listen for submit
-document.querySelector('.loanSubmit').addEventListener('click', function(e){
+document.querySelector('.loanSubmit').addEventListener('click', loader)
+ function loader(e){
  
   //show loader 
   document.getElementById('loading').hidden = false;
@@ -85,7 +88,7 @@ document.querySelector('.loanSubmit').addEventListener('click', function(e){
       setTimeout(calculateResults, 2000);
 
   e.preventDefault();
-});
+}
 
 //Calculate results function
 function calculateResults(){
@@ -115,43 +118,30 @@ function calculateResults(){
 
         //show results
         document.getElementById('results').style.display = 'block';
-        //hide loader 
-        document.getElementById('loading').style.display = 'none';
+        
 
   } else {
-    showError('Check numbers for error');
+    showError();
   }
 
 }
 
 
 //Show error function
-function showError(error){
+function showError(){
    //hide results
    document.getElementById('results').style.display = 'none';
-   //hide loader 
-   document.getElementById('loading').style.display = 'none';
   
-   //create a div
-  const errorDiv = document.createElement('div');
-    //get elements
-    const card = document.querySelector('.err');
-    const heading = document.querySelector('.heading');
-
-  //add a class to the div
-  errorDiv.className = 'alert alert-danger';
-  //create text node and append to the div
-  errorDiv.appendChild(document.createTextNode(error));
-
-    //insert error above heading
-    card.insertBefore(errorDiv, heading);
+   //show error
+   document.querySelector('.alert').hidden = false;
+  
       //clear error after 3 seconds
-      setTimeout(clearError, 3000);
+      setTimeout(clearError, 3500);
 }
 
 //clear error function
 function clearError(){
-  document.querySelector('.alert').remove();
+  document.querySelector('.alert').hidden = true;
 }
 
 }

@@ -46,7 +46,7 @@ li:hover,
 
 .bg-silver {
   background-color: #f9fcff;
-  background-image: linear-gradient(147deg, #fff 0%, #f9fcff 50%, #dee4ea 74%);
+  background-image: linear-gradient(147deg, #fff 0%, #f9fcff 25%, #dee4ea 98%);
 }
 
 /* .bg-shimmer {
@@ -56,13 +56,17 @@ li:hover,
 
 
 #calculator{
-	width: 320px;
-  height: 520px;
+	max-width: 320px;
   padding-top: 10px;
 	margin: 0 auto;
-  position: relative;
-	border-radius: 5px;
+  border-radius: 5px;
+  background-image: linear-gradient(to top,  #dee4ea 0%, #fff 20%, #f9fcff 25%, #dee4ea 98%);
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#bend {
+  background-image: linear-gradient(to bottom, #fff 0%, #f9fcff 85%, #dee4ea 99%);
+  height: 145px;
+  padding: 10px;
 }
 #result{
   font-family: 'Big Shoulders Stencil Text', cursive;
@@ -70,8 +74,7 @@ li:hover,
   border-style: double;
   border-radius: 2%;
   border-color: rgb(228, 226, 226);
-  background-image: linear-gradient(to bottom, #fff 0%, #f9fcff 20%, #dee4ea 99%);
-  margin: 10px;
+  padding-right: 8px;
 }
 #history{
 	text-align: right;
@@ -84,12 +87,12 @@ li:hover,
 	float: right;
 	height: 60px;
   margin-right: 5px;
-  margin-top: 20px;
+  margin-top: 15px;
 	font-size: 40px;
 }
 #keyboard{
   height: 390px;
-  margin-left: 10px;
+  margin: 10px;
 }
 .operator, .number, .empty{
   background-color: #fff;
@@ -120,4 +123,13 @@ li:hover,
 }
 .operator:focus, .number:focus, .empty:focus{
 	outline: 0;
+}
+
+
+.loanSubmit,
+#resetCalc {
+  width: 70px;
+  height: 50px;
+  margin: 2px;
+	float: unset;
 }

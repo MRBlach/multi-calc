@@ -1,13 +1,15 @@
-// Basic Calculator UI
+// navbar basic calculator button
 document.getElementById('calcBtn').addEventListener('click', displayBasicCalc);
 
+// Basic Calculator UI
 function displayBasicCalc(e) {
-// hide home page
 document.getElementById('home').hidden = true;
 document.getElementById('loanUI').hidden = true;
+document.getElementById('tipUI').hidden = true;
 document.getElementById('calculatorUI').hidden = false;
 document.querySelector('#calculatorUI').innerHTML = `
-<div id="calculator" class="bg-silver mt-5">
+<div id="calculator" class="mt-5">
+			<div id="bend">
 				<div id="result">
 					<div id="history">
 						<p id="history-value"></p>
@@ -16,6 +18,7 @@ document.querySelector('#calculatorUI').innerHTML = `
 						<p id="output-value"></p>
 					</div>
 				</div>
+			</div>
 				<div id="keyboard">
 					<button class="text-secondary operator" id="clear">C</button>
 					<button class="text-secondary operator" id="backspace">CE</button>
