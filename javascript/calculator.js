@@ -6,9 +6,10 @@ function displayBasicCalc(e) {
 document.getElementById('home').hidden = true;
 document.getElementById('loanUI').hidden = true;
 document.getElementById('tipUI').hidden = true;
+document.getElementById('converterUI').hidden = true;
 document.getElementById('calculatorUI').hidden = false;
-document.querySelector('#calculatorUI').innerHTML = `
-<div id="calculator" class="mt-5">
+document.getElementById('calculatorUI').innerHTML = `
+<div id="calculator" class="mt-3">
 			<div id="bend">
 				<div id="result">
 					<div id="history">
@@ -36,9 +37,9 @@ document.querySelector('#calculatorUI').innerHTML = `
 					<button class="text-secondary number" id="2">2</button>
 					<button class="text-secondary number" id="3">3</button>
 					<button class="text-secondary operator" id="+">+</button>
-					<button class="empty" id="empty"></button>
+					<button class="empty" id="empty">t</button>
 					<button class="text-secondary number" id="0">0</button>
-					<button class="empty" id="empty"></button>
+					<button class="empty" id="empty">t</button>
 					<button class="text-secondary operator" id="=">=</button>
 				</div>
 			</div>

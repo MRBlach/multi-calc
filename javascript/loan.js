@@ -7,7 +7,8 @@ document.getElementById('loanUI').hidden = false;
 document.getElementById('home').hidden = true;
 document.getElementById('calculatorUI').hidden = true;
 document.getElementById('tipUI').hidden = true;
-document.querySelector('#loanUI').innerHTML = `
+document.getElementById('converterUI').hidden = true;
+document.getElementById('loanUI').innerHTML = `
 <div class="container">
 <div class="row">
   <div class="col-md-6 mx-auto stencil-text">
@@ -16,6 +17,7 @@ document.querySelector('#loanUI').innerHTML = `
       <div class="alert shimmer" hidden>Number Input Error Please Try Again</div>
       <form  id="loan-form">
       
+      <h1 class="shimmer">Loan Interest</h1>
         <div class="input-group pb-4">
           <div class="input-group-prepend">
             <span class="bg-silver text-secondary input-group-text">$</span>

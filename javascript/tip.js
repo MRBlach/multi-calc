@@ -7,18 +7,20 @@ document.getElementById('tipUI').hidden = false;
 document.getElementById('home').hidden = true;
 document.getElementById('loanUI').hidden = true;
 document.getElementById('calculatorUI').hidden = true;
-document.querySelector('#tipUI').innerHTML = `
+document.getElementById('converterUI').hidden = true;
+document.getElementById('tipUI').innerHTML = `
 <div class="container">
   <div class="row">
     <div class="col-md-6 mx-auto stencil-text">
       <div class="card card-body text-center pt-5 mt-5 shadow-lg bg-silver">
     
       <div class="alert shimmer" hidden>Number Input Error Please Try Again</div>
-        <form  id="loan-form">
+      <h1 class="shimmer">Tip Calculator</h1>
+        <form  id="loan-form" class="mx-auto">
 
           <div class="input-group pb-4">
             <div class="input-group-prepend">
-              <span class="bg-silver text-secondary input-group-text py-0 px-3">$</span>
+              <span class="bg-silver text-secondary input-group-text py-0 px-3 bill-amount">$</span>
             </div> 
             <input type="text" class="text-secondary px-4" id="billamt" placeholder="bill amount">
           </div>
@@ -47,12 +49,12 @@ document.querySelector('#tipUI').innerHTML = `
           
           <div class="form-group text-center">
             <input type="submit" class="loanSubmit text-secondary operator" value="submit" id="calcTip">
-            <input href="#" class="text-secondary operator" type="reset" value="reset" id="resetCalc">
+            <input href="#" class="text-secondary operator" type="reset" value="reset" id="resetTipCalc">
           </div>
      
         </form>
 
-        <div id="loading" hidden>
+        <div id="loadingTip" hidden>
           <h1 class="shimmer pb-3">Calculating...</h1>
         </div>
 
@@ -80,8 +82,8 @@ document.getElementById("totalTip").style.display = "none";
 document.getElementById("each").style.display = "none";
 
 // reset button function
-document.getElementById('resetCalc').addEventListener('click', funcReset);
-function funcReset(e) {
+document.getElementById('resetTipCalc').addEventListener('click', funcResetTip);
+function funcResetTip(e) {
   document.getElementById("totalTip").style.display = "none";
 }
 
@@ -90,9 +92,9 @@ document.getElementById('calcTip').addEventListener('click', loader)
  function loader(e){
  
   //show loader 
-  document.getElementById('loading').hidden = false;
+  document.getElementById('loadingTip').hidden = false;
       //set two second display time
-      setTimeout(calculateTip, 2000);
+      setTimeout(calculateTip, 1000);
 
   e.preventDefault();
 }
@@ -106,13 +108,13 @@ function calculateTip() {
   let numOfPeople = document.getElementById("peopleamt").value;
 
     //Calculate tip
-    var total = (billAmt * serviceQual) / numOfPeople;
+    let total = (billAmt * serviceQual) / numOfPeople;
     //round to two decimal places
     total = Math.round(total * 100) / 100;
     //next line allows us to always have two digits after decimal point
     total = total.toFixed(2);
     //Display the tip
-    document.getElementById('loading').hidden = true;
+    document.getElementById('loadingTip').hidden = true;
     document.getElementById("totalTip").style.display = "block";
     document.getElementById("tip").value = total;
 

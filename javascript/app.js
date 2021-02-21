@@ -1,3 +1,5 @@
+
+// Display Landing Page
 document.getElementById('home').innerHTML = `
 <div class="container">
   <div class="row">
@@ -11,3 +13,15 @@ document.getElementById('home').innerHTML = `
   </div>
 </div>
 `;
+
+// navbar Home button
+document.getElementById('homeBtn').addEventListener('click', displayHome);
+
+// Home UI
+function displayHome(e) {
+  document.getElementById('home').hidden = false;
+  document.getElementById('loanUI').hidden = true;
+  document.getElementById('tipUI').hidden = true;
+  document.getElementById('converterUI').hidden = true;
+  document.getElementById('calculatorUI').hidden = true;
+}
