@@ -7,15 +7,16 @@ document.getElementById('tipUI').hidden = false;
 document.getElementById('home').hidden = true;
 document.getElementById('loanUI').hidden = true;
 document.getElementById('calculatorUI').hidden = true;
+document.getElementById('scientificCalcUI').hidden = true;
 document.getElementById('converterUI').hidden = true;
 document.getElementById('tipUI').innerHTML = `
 <div class="container">
   <div class="row">
     <div class="col-md-6 mx-auto stencil-text">
-      <div class="card card-body text-center pt-5 mt-5 shadow-lg bg-silver">
+      <div class="card card-body text-center pt-3 mt-5 shadow-lg bg-silver">
     
       <div class="alert shimmer" hidden>Number Input Error Please Try Again</div>
-      <h1 class="shimmer">Tip Calculator</h1>
+      <h1 class="shimmer pb-2">Tip Calculator</h1>
         <form  id="loan-form" class="mx-auto">
 
           <div class="input-group pb-4">
@@ -59,17 +60,23 @@ document.getElementById('tipUI').innerHTML = `
         </div>
 
         <div id="totalTip" class="pt-4">
-          <h5 class="shimmer">Tip Total</h5>
+          <h5 class="shimmer" id="tip-total">Results</h5>
+
           <div class="input-group pb-2">
-          <div class="input-group-prepend">
-            <span class="input-group-text text-secondary bg-silver">$</span>
+            <div class="input-group-prepend  ml-4">
+              <span class="input-group-text text-secondary bg-silver">Tip</span>
+            </div>
+            <input type="text" class="px-4" bg-white text-secondary" id="tip">  
           </div>
-          <input type="text" class="px-4 bg-white text-secondary" id="tip">  <h3 class="pl-2 text-secondary" id="each">each</h3>
+
+          <div class="input-group pb-2">
+           <div class="input-group-prepend ml-4">
+             <span class="input-group-text pl-1 pr-2 text-secondary bg-silver">Total</span>
+            </div>
+            <input type="text" class="px-4" bg-white text-secondary" id="totalBill">  
+          </div>
         </div>
 
-          
-          
-        </div>
       </div>
     </div>
   </div>
@@ -79,7 +86,6 @@ document.getElementById('tipUI').innerHTML = `
 
 //Hide the tip amount on load
 document.getElementById("totalTip").style.display = "none";
-document.getElementById("each").style.display = "none";
 
 // reset button function
 document.getElementById('resetTipCalc').addEventListener('click', funcResetTip);
@@ -90,7 +96,7 @@ function funcResetTip(e) {
 //Listen for submit
 document.getElementById('calcTip').addEventListener('click', loader)
  function loader(e){
- 
+  document.getElementById("totalTip").style.display = "none";
   //show loader 
   document.getElementById('loadingTip').hidden = false;
       //set two second display time
@@ -108,23 +114,46 @@ function calculateTip() {
   let numOfPeople = document.getElementById("peopleamt").value;
 
     //Calculate tip
-    let total = (billAmt * serviceQual) / numOfPeople;
+    let tip = (billAmt * serviceQual) / numOfPeople;
     //round to two decimal places
-    total = Math.round(total * 100) / 100;
+    tip = Math.round(tip * 100) / 100;
     //next line allows us to always have two digits after decimal point
-    total = total.toFixed(2);
+    tip = tip.toFixed(2);
     //Display the tip
     document.getElementById('loadingTip').hidden = true;
     document.getElementById("totalTip").style.display = "block";
-    document.getElementById("tip").value = total;
+    document.getElementById("tip").value = tip;
+    
+    // calculate total tip <=1 person
+    let totalTip = (billAmt * serviceQual) / numOfPeople;
+    // calculate total bill
+    let totalBill = billAmt + totalTip;
+     //round to two decimal places
+     totalBill = Math.round(totalBill * 100) / 100;
+     //next line allows us to always have two digits after decimal point
+     totalBill = totalBill.toFixed(2);
+   
+     //Display bill total
+     document.getElementById('totalBill').value = totalBill;
 
-
+    // calculate total tip >1 person
+    let totalTipPer = (billAmt * serviceQual) / numOfPeople;
+    // Calculate total bill >1 person
+    let totalPerPeron = billAmt / numOfPeople;
+    // calculate total bill
+    let totalBillPer = totalPerPeron + totalTipPer;
+     //round to two decimal places
+     totalBillPer = Math.round(totalBillPer * 100) / 100;
+     //next line allows us to always have two digits after decimal point
+     totalBillPer = totalBillPer.toFixed(2);
+   
+     //Display bill total
+     document.getElementById('totalBill').value = totalBillPer;
   //Check to see if this input is empty or less than or equal to 1
-  if (numOfPeople === "" || numOfPeople <= 1) {
-    numOfPeople = 1;
-    document.getElementById("each").style.display = "none";
+  if (numOfPeople === '' || numOfPeople <=1) {
+    document.getElementById('tip-total').innerHTML = `Results`;
   } else {
-    document.getElementById("each").style.display = "block";
+    document.getElementById('tip-total').innerHTML = `Results Per Person`;
   }
 
    //validate input

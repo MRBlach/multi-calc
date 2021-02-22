@@ -7,16 +7,17 @@ document.getElementById('home').hidden = true;
 document.getElementById('loanUI').hidden = true;
 document.getElementById('tipUI').hidden = true;
 document.getElementById('converterUI').hidden = true;
+document.getElementById('scientificCalcUI').hidden = true;
 document.getElementById('calculatorUI').hidden = false;
 document.getElementById('calculatorUI').innerHTML = `
-<div id="calculator" class="mt-3">
+<div class="calculator mt-3">
 			<div id="bend">
-				<div id="result">
+				<div class="result">
 					<div id="history">
-						<p id="history-value"></p>
+						<p class="" id="history-value"></p>
 					</div>
-					<div id="output">
-						<p id="output-value"></p>
+					<div class="output">
+						<p id="output-value">Basic Calculator</p>
 					</div>
 				</div>
 			</div>
@@ -44,6 +45,15 @@ document.getElementById('calculatorUI').innerHTML = `
 				</div>
 			</div>
 `
+greetingTimeOut();
+
+// time out greeting
+function greetingTimeOut() {
+	setTimeout(removeGreeting, 1500);
+}
+function removeGreeting() {
+	document.getElementById('output-value').innerHTML = "0";
+}
 // Calculator function
 function getHistory(){
 	return document.getElementById("history-value").innerText;

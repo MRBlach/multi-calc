@@ -19,7 +19,7 @@ document.getElementById('navbar').innerHTML = `
         <a class="nav-link" href="#" id="calcBtn">Basic Calculator</a>
       </li>
       <li class="nav-item list" data-toggle="collapse" data-target=".navbar-collapse.show">
-        <a class="nav-link" href="#" id="scientificBtn" disabled>Scientific Calculator</a>
+        <a class="nav-link" href="#" id="scientificCalcBtn">Scientific Calculator</a>
       </li>
       <li class="nav-item list" data-toggle="collapse" data-target=".navbar-collapse.show">
         <a class="nav-link" href="#" id="converterBtn">Unit Converter</a>
@@ -36,7 +36,4 @@ document.getElementById('navbar').innerHTML = `
   
 </nav>
 `
-
-{/* <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-<a class="nav-link" href="#" id="converterBtn">Unit Converter</a>
-</li> */}
+;

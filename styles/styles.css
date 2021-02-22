@@ -15,7 +15,7 @@ li:hover {
 
 .shimmer,
 .list:hover,
-#output {
+.output {
   display: inline-block;
     
   background: #d93f6d -webkit-gradient(linear, 100% 0, 0 0, from(#d93f6d), color-stop(0.5, #22bdbd), to(#d93f6d));
@@ -50,9 +50,7 @@ li:hover {
   background-image: linear-gradient(147deg, #fff 0%, #f9fcff 25%, #dee4ea 98%);
 }
 
-/* .bg-shimmer {
-  background-image: linear-gradient(to bottom right, #e26187, #cc3a5e, #22bda3, #22bdbd);
-} */
+/* navigation bar */
 .navbar-toggler {
     outline: none!important;
     border: none!important;
@@ -63,7 +61,8 @@ li:hover {
   border-radius: 10%;
 }
 
-#calculator{
+/* basic calculator */
+.calculator{
 	max-width: 330px;
   padding-top: 10px;
 	margin: 0 auto;
@@ -76,7 +75,7 @@ li:hover {
   height: 145px;
   padding: 10px;
 }
-#result{
+.result{
   font-family: 'Big Shoulders Stencil Text', cursive;
   height: 100px;
   border-style: double;
@@ -91,11 +90,10 @@ li:hover {
 	padding-top: 5px;
 	font-size: 20px;
 }
-#output{
-	float: right;
+.output{
 	height: 60px;
-  margin-right: 5px;
-  margin-top: 15px;
+  padding-left: 20px;
+  margin-top: 8px;
 	font-size: 40px;
 }
 #keyboard{
@@ -133,7 +131,16 @@ li:hover {
 	outline: 0;
 }
 
+/* Scientific Calculator */
+.sci-calc {
+  max-width: 400px;
+}
+#display {
+  border: none;
+  max-width: 350px;
+}
 
+/* loan & tip calculator */
 .loanSubmit,
 #resetCalc,
 #resetTipCalc {
@@ -147,46 +154,7 @@ li:hover {
   font-weight: bolder!important;
 }
 
-/* select {
-  text-align: center;
-}
-#measurement {
-  width: 100%;
-}
-.converter-side-a span,
-.converter-side-b span {
-  display: inline;
-}
-
-.converter-equals {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-}
-.converter-side-a {
-  width: 50%;
-}
-.unit {
-  width: 80%
-}
-
-.converter-side-b {
-  position: absolute;
-  top: 56%;
-  left: 58%;
-  width: 45.5%;
-} */
-
-/* testingConverter.js */
-/* .converter-wrapper {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 600px;
-  text-align: center;
-  padding: 10px;
-  box-sizing: border-box;
-} */
-
+/* unit converter */
 .converter-wrapper input {
   font-size: 1em;
   width: 100%;
@@ -194,16 +162,13 @@ li:hover {
   margin-top: 10px;
   height: 40px;
   box-sizing: border-box;
-  
 }
-
 .converter-wrapper span {
   position: relative;
   display: inline-block;
   vertical-align: middle;
   width: 100%;
 }
-
 .converter-wrapper span select {
   padding: 10px;
   width: 100%;
@@ -213,23 +178,19 @@ li:hover {
   text-indent: 0.01px;
   background-color: white;
 }
-
 .converter-wrapper span::before,
 .converter-wrapper span::after {
   content: "";
   position: absolute;
   pointer-events: none;
 }
-
 .converter-wrapper span::after { /*  Custom dropdown arrow */
-  
   height: 1em;
   font-size: .625em;
   line-height: 1;
   top: 50%;
   margin-top: -.5em;
 }
-
 .converter-wrapper span::before { /*  Custom dropdown arrow cover */
   width: 2.5em;
   right: 0;
@@ -237,7 +198,6 @@ li:hover {
   bottom: 0;
   border-radius: 0;
 }
-
 .converter-side-a,
 .converter-side-b {
   float: left;
@@ -251,7 +211,6 @@ li:hover {
   right: 5%;
   width: 33%;
 }
-
 .converter-equals {
   position: absolute;
   left: 43%;

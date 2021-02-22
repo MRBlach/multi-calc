@@ -4,11 +4,12 @@ document.getElementById('converterBtn').addEventListener('click', displayConvert
 
 function displayConvertCalc(e) {
 // Tip Calculator UI
-document.getElementById('converterUI').hidden = false;
 document.getElementById('tipUI').hidden = true;
 document.getElementById('home').hidden = true;
 document.getElementById('loanUI').hidden = true;
 document.getElementById('calculatorUI').hidden = true;
+document.getElementById('scientificCalcUI').hidden = true;
+document.getElementById('converterUI').hidden = false;
 document.getElementById('converterUI').innerHTML = `
 <div class="container converter-wrapper">
 <div class="row">

@@ -24,4 +24,5 @@ function displayHome(e) {
   document.getElementById('tipUI').hidden = true;
   document.getElementById('converterUI').hidden = true;
   document.getElementById('calculatorUI').hidden = true;
+  document.getElementById('scientificCalcUI').hidden = true;
 }

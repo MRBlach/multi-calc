@@ -3,11 +3,12 @@ document.getElementById('loanBtn').addEventListener('click', displayLoanCalc);
 
 // Loan Calculator UI
 function displayLoanCalc(e) {
-document.getElementById('loanUI').hidden = false;
 document.getElementById('home').hidden = true;
 document.getElementById('calculatorUI').hidden = true;
+document.getElementById('scientificCalcUI').hidden = true;
 document.getElementById('tipUI').hidden = true;
 document.getElementById('converterUI').hidden = true;
+document.getElementById('loanUI').hidden = false;
 document.getElementById('loanUI').innerHTML = `
 <div class="container">
 <div class="row">
