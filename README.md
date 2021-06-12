@@ -93,8 +93,7 @@ Whether you use this project, have learned something from it, or just like it, p
 ---
 <h1 id="acknowledgments">Acknowledgments</h1>
 
-+ Thanks to **Code Explained** for supplying the [free COVID tracker tutorial](https://www.youtube.com/watch?v=BzUFQDP8B28)
-+ Thanks to **COVID19api.com** for providing the [free API for data on the Coronavirus](https://covid19api.com/)
++ Thanks to **Code Spot** for supplying the [free 'how to build a calculator using javascript' tutorial](https://www.youtube.com/watch?v=CI2GwL--ll8)
 
 ### You may also like..
 
