@@ -94,6 +94,7 @@ Whether you use this project, have learned something from it, or just like it, p
 <h1 id="acknowledgments">Acknowledgments</h1>
 
 + Thanks to **Code Spot** for supplying the [free 'how to build a calculator using javascript' tutorial](https://www.youtube.com/watch?v=CI2GwL--ll8)
++ Thanks to **Jacob Banner** for supplying the [free unit conversion instructions](https://codepen.io/jacobbanner/pen/oxeoqp)
 
 ### You may also like..
 
