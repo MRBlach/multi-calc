@@ -43,7 +43,7 @@ A calculator app.
 
 Responsive design and mobile first approach allow for ease of access across devices.
 
-<img src="images/.png">
+<img src="images/viewports.png">
 
 Here is a working live [demonstration](https://mrblach.github.io/multi-calc/)
 
