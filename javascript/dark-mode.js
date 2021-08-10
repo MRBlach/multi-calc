@@ -2,6 +2,7 @@
 let darkMode = document.getElementById('dark-mode-icon');
 darkMode.addEventListener('click', displayDarkMode);
 
+/////////// BEGIN DARK MODE //////////////
 // Function dark mode
 function displayDarkMode() {
   // Change all of UI to dark mode theme
@@ -126,7 +127,7 @@ function fixDarkModeNull(){
 // End dark mode
 
 
-
+/////////// BEGIN LIGHT MODE //////////////
 // Listen for light mode
 let lightMode = document.getElementById('light-mode-icon');
 lightMode.addEventListener('click', displayLightMode);
@@ -231,7 +232,7 @@ function displayLightMode() {
   }
   
     
-  // // Fixes js null bug for Tip Calculator UI
+  // Fixes js null bug for Tip Calculator UI
   if(document.getElementById('tipUI').hidden === false) {
     fixLightModeNull();
   }
@@ -239,7 +240,7 @@ function displayLightMode() {
 };
 // End light mode
 
-
+// Js null bug fix function for Tip Calculator UI
 function fixLightModeNull() {
   document.querySelector('.peopleIcon-lightMode').hidden = false;
   document.querySelector('.peopleIcon-darkMode').hidden = true;

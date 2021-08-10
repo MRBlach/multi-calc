@@ -27,7 +27,6 @@ li:hover {
   -webkit-animation-duration: 3s;
   -webkit-animation-iteration-count: infinite;
   -webkit-background-size: 15rem 100%; /*50px*/
-  
 }
 
 @-webkit-keyframes shimmer {
@@ -82,6 +81,10 @@ li:hover {
 #light-mode-icon {
     outline: none!important;
     border: none!important;
+}
+#dark-mode-icon,
+#light-mode-icon {
+  border-radius: 50%;
 }
 .toggler:hover,
 .toggler:active {

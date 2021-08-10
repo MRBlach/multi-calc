@@ -11,7 +11,8 @@ document.getElementById('navbar').innerHTML = `
 
   
   <button class="p-0 mr-3 bg-light" id="dark-mode-icon"><i class="far fa-moon shimmer m-0"></i></button>
-  <button class="p-0 mr-3 bg-dark" id="light-mode-icon" hidden><i class="far fa-sun shimmer m-0"></i></button>
+
+  <button class="p-0 mr-3 bg-dark" id="light-mode-icon"><i class="far fa-sun shimmer m-0"></i></button>
   
 
   <div class="collapse navbar-collapse" id="navbarColor02">
