@@ -45,7 +45,7 @@ Responsive design and mobile first approach allow for ease of access across devi
 
 <img src="images/.png">
 
-Here is a working live demonstration: https://mrblach.github.io/multi-calc/
+Here is a working live [demonstration](https://mrblach.github.io/multi-calc/)
 
 ### Steps To Execute This App
 - Download the entire code
@@ -93,8 +93,8 @@ Whether you use this project, have learned something from it, or just like it, p
 ---
 <h1 id="acknowledgments">Acknowledgments</h1>
 
-+ Thanks to **Code Explained** for supplying the [free COVID tracker tutorial](https://www.youtube.com/watch?v=BzUFQDP8B28)
-+ Thanks to **COVID19api.com** for providing the [free API for data on the Coronavirus](https://covid19api.com/)
++ Thanks to **Code Spot** for supplying the [free 'how to build a calculator using javascript' tutorial](https://www.youtube.com/watch?v=CI2GwL--ll8)
++ Thanks to **Jacob Banner** for supplying the [free unit conversion instructions](https://codepen.io/jacobbanner/pen/oxeoqp)
 
 ### You may also like..
 
