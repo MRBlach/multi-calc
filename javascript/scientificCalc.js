@@ -1,4 +1,4 @@
-// navbar scientific calculator button
+// Navbar scientific calculator button
 document.getElementById('scientificCalcBtn').addEventListener('click', displayScientificCalc);
 
 // Basic Calculator UI
@@ -10,17 +10,17 @@ document.getElementById('tipUI').hidden = true;
 document.getElementById('converterUI').hidden = true;
 document.getElementById('calculatorUI').hidden = true;
 document.getElementById('scientificCalcUI').innerHTML = `
-<form name="sci-calc" class="calculator sci-calc mt-3 pb-2">
-<div id="bend">
-  <div id="result">
-    <div class="result">
-      <h1 id="greeting" class="shimmer pl-4 pt-4">Scientific Calculator</h1>
-      <input class="output shimmer pt-3" id="display" name="display" value="0" hidden>
+<form name="sci-calc" class="calculator sci-calc mt-3 mb-3 pb-2">
+  <div class="bend">
+    <div id="result">
+      <div class="result">
+        <h1 id="greeting" class="shimmer pl-4 pt-4">Scientific Calculator</h1>
+        <input class="output shimmer pt-3" id="display" name="display" value="0" hidden>
+      </div>
     </div>
   </div>
-</div>
- <table class="m-2" cellpadding="1.5">
 
+ <table class="m-2">
    <tr>
      <td><input type="button" class="btnTop text-secondary operator" name="btnTop" value="C" onclick="this.form.display.value=  0 "></td>
 
@@ -71,10 +71,11 @@ document.getElementById('scientificCalcUI').innerHTML = `
 </form>
 `
 greetingTimeOut();
+darkModeCheck();
 }
 
 
-// time out greeting
+// Time out greeting
 function greetingTimeOut() {
 	setTimeout(removeGreeting, 1500);
 }
@@ -83,70 +84,73 @@ function removeGreeting() {
   document.getElementById('display').hidden = false;
 }
 
+// Check for dark mode
+function darkModeCheck() {
+  if(document.getElementById('dark-mode-icon').hidden === true) {
+    displayDarkMode();
+  } else {
+    displayLightMode();
+  }
+}
 
-
+// Add characters
 function addChar(input, character) {
 	if(input.value == null || input.value == "0")
 		input.value = character
 	else
 		input.value += character
 }
-
+// Cosine
 function cos(form) {
 	form.display.value = Math.cos(form.display.value);
 }
-
+// Sine
 function sin(form) {
 	form.display.value = Math.sin(form.display.value);
 }
-
+// Tangent
 function tan(form) {
 	form.display.value = Math.tan(form.display.value);
 }
-
+// Square Root
 function sqrt(form) {
 	form.display.value = Math.sqrt(form.display.value);
 }
-
+// natural Logarithm
 function ln(form) {
 	form.display.value = Math.log(form.display.value);
 }
-
+// Exponents
 function exp(form) {
 	form.display.value = Math.exp(form.display.value);
 }
-
+// Delete characters
 function deleteChar(input) {
 	input.value = input.value.substring(0, input.value.length - 1)
 }
+// Percentage
 var val = 0.0;
 function percent(input) {
   val = input.value;
   input.value = input.value + "%";
 }
-
+// Change sign
 function changeSign(input) {
 	if(input.value.substring(0, 1) == "-")
 		input.value = input.value.substring(1, input.value.length)
 	else
 		input.value = "-" + input.value
 }
-
+// Equals
 function compute(form) {
-  //if (val !== 0.0) {
-   // var percent = form.display.value;  
-   // percent = pcent.substring(percent.indexOf("%")+1);
-   // form.display.value = parseFloat(percent)/100 * val;
-    //val = 0.0;
- // } else 
     form.display.value = eval(form.display.value);
   }
-
-
+// Square
 function square(form) {
 	form.display.value = eval(form.display.value) * eval(form.display.value)
 }
 
+// Check that input is a number
 function checkNum(str) {
 	for (var i = 0; i < str.length; i++) {
 		var ch = str.charAt(i);

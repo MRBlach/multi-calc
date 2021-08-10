@@ -1,8 +1,9 @@
-// navbar basic calculator button
+// Navbar basic calculator button
 document.getElementById('calcBtn').addEventListener('click', displayBasicCalc);
 
 // Basic Calculator UI
 function displayBasicCalc(e) {
+document.getElementById('navbar').hidden = false;
 document.getElementById('home').hidden = true;
 document.getElementById('loanUI').hidden = true;
 document.getElementById('tipUI').hidden = true;
@@ -11,7 +12,7 @@ document.getElementById('scientificCalcUI').hidden = true;
 document.getElementById('calculatorUI').hidden = false;
 document.getElementById('calculatorUI').innerHTML = `
 <div class="calculator mt-3">
-			<div id="bend">
+			<div class="bend">
 				<div class="result">
 					<div id="history">
 						<p class="" id="history-value"></p>
@@ -46,14 +47,25 @@ document.getElementById('calculatorUI').innerHTML = `
 			</div>
 `
 greetingTimeOut();
+darkModeCheck();
 
-// time out greeting
+// Time out greeting
 function greetingTimeOut() {
 	setTimeout(removeGreeting, 1500);
 }
 function removeGreeting() {
 	document.getElementById('output-value').innerHTML = "0";
 }
+
+// Check for dark mode
+function darkModeCheck() {
+  if(document.getElementById('dark-mode-icon').hidden === true) {
+    displayDarkMode();
+  } else {
+    displayLightMode();
+  }
+}
+
 // Calculator function
 function getHistory(){
 	return document.getElementById("history-value").innerText;

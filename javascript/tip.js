@@ -1,4 +1,4 @@
-// navbar tip calculator button
+// Navbar tip calculator button
 document.getElementById('tipBtn').addEventListener('click', displayTipCalc);
 
 function displayTipCalc(e) {
@@ -21,15 +21,15 @@ document.getElementById('tipUI').innerHTML = `
 
           <div class="input-group pb-4">
             <div class="input-group-prepend">
-              <span class="bg-silver text-secondary input-group-text py-0 px-3 bill-amount">$</span>
+              <span class="spans bg-silver text-secondary input-group-text py-0 px-3 bill-amount">$</span>
             </div> 
-            <input type="text" class="text-secondary px-4" id="billamt" placeholder="bill amount">
+            <input type="text" class="inputs text-secondary px-4 numbersonly" id="billamt" placeholder="bill amount">
           </div>
 
           <div class="input-group pb-4">
             <div class="input-group-prepend">
-              <span class="bg-silver text-secondary input-group-text px-2 py-0" style='font-size:25px;'>&#x26FE;</span>
-              <select id="serviceQual" class="text-secondary pl-3 pr-5">
+              <span class="spans bg-silver text-secondary input-group-text px-2 py-0" style='font-size:25px;'>&#x26FE;</span>
+              <select id="serviceQual" class="inputs text-secondary pl-3 pr-5">
                 <option disabled selected value="0">-- service quality --</option>
                 <option value="0.3">30&#37; &#45; Outstanding</option>
                 <option value="0.2">20&#37; &#45; Good</option>
@@ -42,15 +42,18 @@ document.getElementById('tipUI').innerHTML = `
 
           <div class="input-group pb-4">
             <div class="input-group-prepend">
-              <span class="bg-silver text-secondary input-group-text py-1 px-2"><img src="images/people-icon.png"></span>
+              <span class="spans bg-silver text-secondary input-group-text py-1 px-2">
+                <img src="images/people-icon.png" class="peopleIcon-lightMode" hidden>
+                <img src="images/people-icon-dark-mode.png" class="peopleIcon-darkMode" hidden>
+              </span>
             </div> 
-            <input type="text" class="px-4 text-secondary" id="peopleamt" placeholder="number of people">
+            <input type="text" class="inputs px-4 text-secondary numbersonly" id="peopleamt" placeholder="number of people">
           </div>
 
           
           <div class="form-group text-center">
-            <input type="submit" class="loanSubmit text-secondary operator" value="submit" id="calcTip">
-            <input href="#" class="text-secondary operator" type="reset" value="reset" id="resetTipCalc">
+            <input type="submit" class="inputs loanSubmit text-secondary operator" value="submit" id="calcTip">
+            <input href="#" class="inputs text-secondary operator" type="reset" value="reset" id="resetTipCalc">
           </div>
      
         </form>
@@ -64,16 +67,16 @@ document.getElementById('tipUI').innerHTML = `
 
           <div class="input-group pb-2">
             <div class="input-group-prepend  ml-4">
-              <span class="input-group-text text-secondary bg-silver">Tip</span>
+              <span class="spans input-group-text text-secondary bg-silver">Tip</span>
             </div>
-            <input type="text" class="px-4" bg-white text-secondary" id="tip">  
+            <input type="text" class="inputs px-4" bg-white text-secondary" id="tip">  
           </div>
 
           <div class="input-group pb-2">
            <div class="input-group-prepend ml-4">
-             <span class="input-group-text pl-1 pr-2 text-secondary bg-silver">Total</span>
+             <span class="spans input-group-text pl-1 pr-2 text-secondary bg-silver">Total</span>
             </div>
-            <input type="text" class="px-4" bg-white text-secondary" id="totalBill">  
+            <input type="text" class="inputs px-4" bg-white text-secondary" id="totalBill">  
           </div>
         </div>
 
@@ -84,100 +87,107 @@ document.getElementById('tipUI').innerHTML = `
 
 `;
 
-//Hide the tip amount on load
+darkModeCheck();
+
+// Check for dark mode
+function darkModeCheck() {
+  if(document.getElementById('dark-mode-icon').hidden === true) {
+    displayDarkMode();
+  } else {
+    displayLightMode();
+  }
+}
+
+// Hide the tip amount on load
 document.getElementById("totalTip").style.display = "none";
 
-// reset button function
+// Reset button function
 document.getElementById('resetTipCalc').addEventListener('click', funcResetTip);
 function funcResetTip(e) {
   document.getElementById("totalTip").style.display = "none";
 }
 
-//Listen for submit
+// Listen for submit
 document.getElementById('calcTip').addEventListener('click', loader)
  function loader(e){
   document.getElementById("totalTip").style.display = "none";
-  //show loader 
+  // Show loader while 'calculating'
   document.getElementById('loadingTip').hidden = false;
-      //set two second display time
+      // Set two second display time
       setTimeout(calculateTip, 1000);
 
   e.preventDefault();
 }
 
-//Calculate Tip
-
-
+// Function Calculate Tip
 function calculateTip() {
   let billAmt = document.getElementById("billamt").value;
   let serviceQual = document.getElementById("serviceQual").value;
   let numOfPeople = document.getElementById("peopleamt").value;
 
-    //Calculate tip
+    // Calculate tip
     let tip = (billAmt * serviceQual) / numOfPeople;
-    //round to two decimal places
+    // Round to two decimal places
     tip = Math.round(tip * 100) / 100;
-    //next line allows us to always have two digits after decimal point
+    // Allow only two digits after decimal point
     tip = tip.toFixed(2);
-    //Display the tip
+    // Display the tip
     document.getElementById('loadingTip').hidden = true;
     document.getElementById("totalTip").style.display = "block";
     document.getElementById("tip").value = tip;
     
-    // calculate total tip <=1 person
+    // Calculate total tip <=1 person
     let totalTip = (billAmt * serviceQual) / numOfPeople;
-    // calculate total bill
+    // Calculate total bill
     let totalBill = billAmt + totalTip;
-     //round to two decimal places
+     // Round to two decimal places
      totalBill = Math.round(totalBill * 100) / 100;
-     //next line allows us to always have two digits after decimal point
+     // Allow only two digits after decimal point
      totalBill = totalBill.toFixed(2);
-   
-     //Display bill total
+     // Display bill total
      document.getElementById('totalBill').value = totalBill;
 
-    // calculate total tip >1 person
+    // Calculate total tip >1 person
     let totalTipPer = (billAmt * serviceQual) / numOfPeople;
     // Calculate total bill >1 person
     let totalPerPeron = billAmt / numOfPeople;
-    // calculate total bill
+    // Calculate total bill
     let totalBillPer = totalPerPeron + totalTipPer;
-     //round to two decimal places
+     // Round to two decimal places
      totalBillPer = Math.round(totalBillPer * 100) / 100;
-     //next line allows us to always have two digits after decimal point
+     // Allow only two digits after decimal point
      totalBillPer = totalBillPer.toFixed(2);
-   
-     //Display bill total
+     // Display bill total
      document.getElementById('totalBill').value = totalBillPer;
-  //Check to see if this input is empty or less than or equal to 1
+  
+  // Check to see if this input is empty or less than or equal to 1
   if (numOfPeople === '' || numOfPeople <=1) {
     document.getElementById('tip-total').innerHTML = `Results`;
   } else {
     document.getElementById('tip-total').innerHTML = `Results Per Person`;
   }
 
-   //validate input
-   if (billAmt === "" || serviceQual == 0) {
+   // Validate input
+  if (billAmt === "" || serviceQual == 0) {
     showError();
   }
-
 
   e.preventDefault();
 }
 
-//Show error function
+// Show error function
 function showError(){
-  //hide results
+  // Hide results
   document.getElementById('totalTip').style.display = 'none';
  
-  //show error
+  // Show error
   document.querySelector('.alert').hidden = false;
  
-     //clear error after 3 seconds
+     // Clear error after 3 seconds
      setTimeout(clearError, 3500);
 }
 
-//clear error function
+// Clear error function
 function clearError(){
  document.querySelector('.alert').hidden = true;
 

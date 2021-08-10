@@ -21,25 +21,25 @@ document.getElementById('loanUI').innerHTML = `
       <h1 class="shimmer">Loan Interest</h1>
         <div class="input-group pb-4">
           <div class="input-group-prepend">
-            <span class="bg-silver text-secondary input-group-text">$</span>
+            <span class="spans bg-silver text-secondary input-group-text">$</span>
           </div> 
-          <input type="number" class="form-control" id="amount" placeholder="loan amount">
+          <input type="number" class="inputs form-control" id="amount" placeholder="loan amount">
         </div>
 
         <div class="input-group pb-4">
           <div class="input-group-prepend">
-            <span class="bg-silver text-secondary input-group-text">%</span>
+            <span class="spans bg-silver text-secondary input-group-text">%</span>
           </div> 
-           <input type="number" class="form-control" id="interest" placeholder="interest rate">
+           <input type="number" class="inputs form-control" id="interest" placeholder="interest rate">
         </div>
 
         <div class="form-group">
-          <input type="number" class="form-control" id="years" placeholder="years to repay">
+          <input type="number" class="inputs form-control" id="years" placeholder="years to repay">
         </div>
 
         <div class="form-group text-center">
-          <input type="submit" class="loanSubmit text-secondary operator" value="submit">
-          <input href="#" class="text-secondary operator" type="reset" value="reset" id="resetCalc">
+          <input type="submit" class="inputs loanSubmit text-secondary operator" value="submit">
+          <input href="#" class="inputs text-secondary operator" type="reset" value="reset" id="resetCalc">
         </div>
       </form>
 
@@ -51,54 +51,64 @@ document.getElementById('loanUI').innerHTML = `
         <h5 class="shimmer">Results</h5>
         <div class="input-group pb-2">
           <div class="input-group-prepend">
-            <span class="input-group-text bg-silver">Monthly $</span>
+            <span class="spans input-group-text bg-silver">Monthly $</span>
           </div>
-          <input type="number" class="form-control bg-white" id="monthly-payment" disabled>
+          <input type="number" class="inputs form-control bg-white" id="monthly-payment" disabled>
       </div>
 
       <div class="input-group pb-2">
         <div class="input-group-prepend">
-          <span class="input-group-text bg-silver">Total $</span>
+          <span class="spans input-group-text bg-silver">Total $</span>
         </div>
-         <input type="number" class="form-control bg-white" id="total-payment" disabled>
+         <input type="number" class="inputs form-control bg-white" id="total-payment" disabled>
     </div>
 
     <div class="input-group">
       <div class="input-group-prepend">
-        <span class="input-group-text bg-silver">Total %</span>
+        <span class="spans input-group-text bg-silver">Total %</span>
       </div>
-      <input type="number" class="form-control bg-white" id="total-interest" disabled>  
+      <input type="number" class="inputs form-control bg-white" id="total-interest" disabled>  
     </div>
   </div>
   </div>
 </div>
 </div>
 `
+darkModeCheck();
 
-// reset button function
+// Check for dark mode
+function darkModeCheck() {
+  if(document.getElementById('dark-mode-icon').hidden === true) {
+    displayDarkMode();
+  } else {
+    displayLightMode();
+  }
+}
+
+// Reset button function
 document.getElementById('resetCalc').addEventListener('click', funcReset);
 function funcReset(e) {
   document.getElementById('results').hidden = true;
 }
 
-//Listen for submit
+// Listen for submit
 document.querySelector('.loanSubmit').addEventListener('click', loader)
  function loader(e){
  
-  //show loader 
+  // Show loader 
   document.getElementById('loading').hidden = false;
-      //set two second display time
+      // Set two second display time
       setTimeout(calculateResults, 2000);
 
   e.preventDefault();
 }
 
-//Calculate results function
+// Calculate results function
 function calculateResults(){
   document.getElementById('loading').hidden = true;
   document.getElementById('results').hidden = false;
 
-  //UI variables
+  // UI variables
   const amount = document.getElementById('amount');
   const interest = document.getElementById('interest');
   const years = document.getElementById('years');
@@ -110,7 +120,7 @@ function calculateResults(){
   const calculatedInterest = parseFloat(interest.value) /100 /12;
   const calculatedPayments = parseFloat(years.value) *12;
 
-  //compute monthly payment
+  // Compute monthly payment
   const x = Math.pow(1 + calculatedInterest, calculatedPayments);
   const monthly = (principal*x*calculatedInterest)/(x-1);
 
@@ -119,7 +129,7 @@ function calculateResults(){
     totalPayment.value = (monthly * calculatedPayments).toFixed(2);
     totalInterest.value = ((monthly * calculatedPayments)-principal).toFixed(2);
 
-        //show results
+        // Show results
         document.getElementById('results').style.display = 'block';
         
 
@@ -130,19 +140,19 @@ function calculateResults(){
 }
 
 
-//Show error function
+// Show error function
 function showError(){
-   //hide results
+   // Hide results
    document.getElementById('results').style.display = 'none';
   
-   //show error
+   // Show error
    document.querySelector('.alert').hidden = false;
   
-      //clear error after 3 seconds
+      // Clear error after 3 seconds
       setTimeout(clearError, 3500);
 }
 
-//clear error function
+// Clear error function
 function clearError(){
   document.querySelector('.alert').hidden = true;
 }

@@ -1,9 +1,10 @@
 
 // Display Landing Page
+document.getElementById('navbar').hidden = true;
 document.getElementById('home').innerHTML = `
 <div class="container">
   <div class="row">
-    <div class="col-md-6 mx-auto">
+    <div class="col-md-6 mx-auto mt-5">
       <div class="card card-body text-center mt-5 shadow-lg bg-silver">
         <h1 class="stencil-text shimmer m-0"><strong>Multi-Calc</strong></h1>
         <img src="images/calc-lg.png" alt="multi-colored calculator" class="px-4"/>
@@ -14,15 +15,8 @@ document.getElementById('home').innerHTML = `
 </div>
 `;
 
-// navbar Home button
-document.getElementById('homeBtn').addEventListener('click', displayHome);
-
-// Home UI
-function displayHome(e) {
-  document.getElementById('home').hidden = false;
-  document.getElementById('loanUI').hidden = true;
-  document.getElementById('tipUI').hidden = true;
-  document.getElementById('converterUI').hidden = true;
-  document.getElementById('calculatorUI').hidden = true;
-  document.getElementById('scientificCalcUI').hidden = true;
+homepageTimeOut();
+// Time out greeting
+function homepageTimeOut() {
+	setTimeout(displayBasicCalc, 1000);
 }
